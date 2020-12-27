@@ -63,8 +63,9 @@ typedef struct {
 /**
  * Display Driver structure to be registered by HAL
  */
-typedef struct _disp_drv_t {
-
+typedef struct _disp_drv_t lv_disp_drv_t;
+typedef struct _disp_drv_t
+{
     lv_coord_t hor_res; /**< Horizontal resolution. */
     lv_coord_t ver_res; /**< Vertical resolution. */
 
@@ -90,7 +91,8 @@ typedef struct _disp_drv_t {
 
     /** MANDATORY: Write the internal buffer (VDB) to the display. 'lv_disp_flush_ready()' has to be
      * called when finished */
-    void (*flush_cb)(struct _disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * color_p);
+//    void (*flush_cb)(struct _disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * color_p);
+    void (*flush_cb)(lv_disp_drv_t *disp_drv, const lv_area_t *area, const lv_color_t *color_p);
 
     /** OPTIONAL: Extend the invalidated areas to match with the display drivers requirements
      * E.g. round `y` to, 8, 16 ..) on a monochrome display*/
